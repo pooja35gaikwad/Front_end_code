@@ -1,0 +1,122 @@
+<label class="switch">
+    <input type="checkbox" id="togBtn">
+    <div class="slider round">
+
+    </div>
+</label>
+<hr>
+<div class="split left">
+    <div class="col-sm-4">
+        <div class="fakeimg">
+            <div id="chartContainer" style="height: 550px; border-radius: 50 mm; border-color: rgb(8,8,8);">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="split right">
+    <div class="container">
+        <form action="/action_page.php">
+
+            <div class="row">
+                <div class="col-25">
+                    <label for="fname" style="font-size: large; font-family: 'Times New Roman', Times, serif;">Start Freq.</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="fname" name="startFreq" placeholder="Enter Start Freq. in GHz..">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="lname" style="font-size: large; font-family: 'Times New Roman', Times, serif;">Stop Freq.</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="lname" name="stopFreq" placeholder="Enter Stop Freq. in GHz..">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="fname" style="font-size: large; font-family: 'Times New Roman', Times, serif;">Points</label>
+                </div>
+                <div class="col-75">
+                    <input type="text" id="fname" name="startFreq" placeholder="Enter No. of points..">
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="container1">
+        <h6 style="font-family: 'Times New Roman', Times, serif; font-weight: bold;"> Select Mode</h6>
+        <div class="container2">
+            <label class="radio-inline">
+                <input type="radio" name="optradio" checked> NA
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="optradio"> SA
+            </label>
+        </div>
+        <div class="container3">
+            <h6
+                style="font-family: 'Times New Roman', Times, serif; font-weight: bold; font-size: large; color: white;  padding-left: 10px; padding-top: 5px;">
+                Data Format</h6>
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle"
+                    style="font-family: 'Times New Roman', Times, serif;">Data Format</button>
+                <div class="dropdown-content">
+                    <a href="#">Polar</a>
+                    <a href="#">Smith Chart</a>
+                    <a href="#">VSWR</a>
+                    <a href="#">Phase</a>
+                    <a href="#">Log-Magnitude</a>
+
+                </div>
+            </div>
+            <h6
+                style="font-family: 'Times New Roman', Times, serif; font-weight: bold; font-size: large; color: white;  padding-left: 10px; padding-top: 5px;">
+                Measurement</h6>
+                <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle"
+                        style="font-family: 'Times New Roman', Times, serif;">S-Parameters</button>
+                    <div class="dropdown-content">
+                        <a href="#">S11</a>
+                        <a href="#">S12</a>
+                        <a href="#">S21</a>
+                        <a href="#">S22</a>
+    
+                    </div>
+                </div>
+            <div>
+                <div class="row" style="margin-right: 100px; margin-left: 10px;">
+                    <input type="submit" value="Set Parameters">
+                </div>
+            </div>
+            <h6
+                style="font-family: 'Times New Roman', Times, serif; font-weight: bold; margin-left: 10px; color: white; padding-top: 10px;">
+                File Save</h6>
+            <div class="container4">
+                <label class="radio-inline">
+                    <input type="radio" name="optradio" checked> CSV
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="optradio"> PNG
+                </label>
+            </div>
+        </div>
+        <div class="container5">
+            <form>
+                <div class="form-group">
+                    <label for="pwd">Experiment Name : </label>
+                    <input type="password" class="form-control" id="pwd">
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+
+</div>
+
+
+<div class="dls-menu-item" style=" margin-top: 35%; ">
+    <button (click)="onPress()" class="btn btn-success">
+        START SCANNING
+    </button>
+</div>

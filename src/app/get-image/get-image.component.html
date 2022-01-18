@@ -1,0 +1,45 @@
+<h5
+    style="text-align: center; font-family: 'Times New Roman', Times, serif; font-weight: bolder; font-size: xx-large; color: green; text-decoration: underline;">
+    B-Scan Processing
+</h5>
+<hr>
+
+
+<div class="vertical-center" style="text-align: center; ">
+    <button (click)="onPress()" class="btn btn-success" style="text-align: center;">
+        GET IMAGE
+    </button>
+</div>
+
+
+<form action="/action_page.php">
+    <label for="files">Select necessary CSV files: </label>
+    <input type="file" id="files" name="files" multiple><br><br>
+    <input type="submit">
+</form>
+
+
+<div>
+
+
+    <canvas id="myCanvas" width="300" height="250"
+        style="border:3px solid #d3d3d3; background-color: rgb(65, 65, 61); top: 60%; left: 50%; position: absolute; width: 800px; height: 600px; transform: translate(-50%, -50%);">
+      </canvas>
+    <script src="script.js"></script>
+
+   
+    <div id='container' style="width: 300; height: 250;">  <div id='container'>
+        <div id='element' style="width:780px; height:550px; margin-left: 29.5%; margin-top: 2.5%;"></div>
+    </div>
+    <!-- <ej-heatmaplegend id="heatmaplegend" style="margin-left:150px" height="50px" width="75%">
+        <e-legendcolormappings>
+            <e-legendcolormapping [value]="0" color="#8ec8f8">
+                </e-legendcolormapping>
+            <e-legendcolormapping [value]="100" color="#0d47a1">
+                </e-legendcolormapping>
+        </e-legendcolormappings>
+    </ej-heatmaplegend> -->
+    </div>
+
+
+</div>

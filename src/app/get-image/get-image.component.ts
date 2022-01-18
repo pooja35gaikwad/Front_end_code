@@ -64,8 +64,8 @@ export class GetImageComponent implements OnInit {
       xAxis: {
         //  labels: ['0', '1', '2', '3', '4', '5',
         //   '6', '7', '8', 'Russia', 'France', 'Japan'],
-        // labelRotation: 45,
-      //  labelIntersectAction: 'None',
+         labelRotation: 45,
+       labelIntersectAction: 'None',
       },
 
       yAxis: {

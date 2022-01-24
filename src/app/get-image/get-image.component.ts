@@ -30,25 +30,70 @@ export class GetImageComponent implements OnInit {
       response => this.handleSuccessfulResponse(response)
     );
   }
+
+
+  onPress1() {
+    console.log(this.service.getMatrix());
+    this.service.getMeanSubtractedMatrix().subscribe(
+      response => this.handleSuccessfulResponse(response)
+    );
+  }
+
   // }
   handleSuccessfulResponse(response: MatrixData) {
 
-    let heatmapData: Object = response;
-
-    let heatmap: HeatMap = new HeatMap({
-      // Theme: HighContrast,
-      titleSettings: {
-        text: 'B-Scan Image of Data',
-        textStyle: {
+    let heatmapData = response;
+    var heatmap = new HeatMap({
+    titleSettings: {
+      text: 'B-Scan Image',
+      textStyle: {
           size: '15px',
           fontWeight: '500',
           fontStyle: 'Normal',
           fontFamily: 'Segoe UI'
-        }
+      }
+  },
+   cellSettings: {
+      showLabel: true,
+      enableCellHighlighting: true,
+      border: {
+        width: 0,
+      //   radius: 4,
+      //  color: 'red'
+    }
+  },
+     paletteSettings: {
+      //  colorGradientMode: 'Table',
+        palette: [
+        //   //    { color: 'rgb(255, 0, 0)' },
+        //   //    { color: '#6C5B7B', label:'Moderate', value:0.002},
+        //   //   { color: '#355C7D', label:'High', value: 0.003 }
+          // { color: '#172957' },
+           { color: '#172957' },
+           { color: '#0000ff' },
+           { color: '#00ffff' },
+       //  { color: '#00ff00' },
+        // { color: '#ffff00' },
+      //   { color: '#ff0000' },
+        { color: '#000000' },
+       // { color: '#000000' },
+       { color: '#ffffff' }
+         
+         
+
+
+
+
+
+
+
+
+         
+        ],
+        type: "Gradient",
       },
-      xAxis: {
-        //  labels: ['0', '1', '2', '3', '4', '5',
-        //   '6', '7', '8', 'Russia', 'France', 'Japan'],
+    xAxis: {
+      // labels: ['1', '2'],
         labelRotation: 45,
         labelIntersectAction: 'None',
 
@@ -56,66 +101,102 @@ export class GetImageComponent implements OnInit {
 
       yAxis: {
 
-        // labels: ['2008', '2009', '2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017']
+        labels: ['32','31','30', '29', '28', '27', '26', '25', '24', '23', '22', '21', '20', '19', '18', '17', '16', '15', '14', '13', '12', '11', '10', '9', '8', '7', '6', '5', '4', '3', '2', '1']
       },
-      tooltipSettings: {
-        fill: '#696295',
-        textStyle: {
+  dataSource: heatmapData,
+ 
+}, '#element');
 
-          size: '0px'
-        },
-        border: {
-          width: '0px',
-          //  color: '#F0C27B',
-          //  radius: '0px'
-        }
-      },
-      paletteSettings: {
-        colorGradientMode: 'Table',
-        palette: [
-          //    { color: 'rgb(255, 0, 0)' },
-          //    { color: '#6C5B7B', label:'Moderate', value:0.002},
-          //   { color: '#355C7D', label:'High', value: 0.003 }
-          { color: '#000000' },
-          { color: '#ff0000' },
-          { color: '#ffff00' },
-          { color: '#00ff00' },
-          { color: '#00ffff' },
+    // let heatmapData: Object = response;
 
-          { color: '#0000ff' },
-          /// { color: '#ffffff'}
-        ],
-        type: "Gradient",
-      },
-      legendSettings: {
-        visible: true,
-        enableSmartLegend: true
-      },
-      cellSettings: {
-        border: { width: 0 },
-        showLabel: false,
-        enableCellHighlighting: true
+    // let heatmap: HeatMap = new HeatMap({
+    //   // Theme: HighContrast,
+    //   titleSettings: {
+    //     text: 'B-Scan Image of Data',
+    //     textStyle: {
+    //       size: '15px',
+    //       fontWeight: '500',
+    //       fontStyle: 'Normal',
+    //       fontFamily: 'Segoe UI'
+    //     }
+    //   },
+    //   xAxis: {
+    //    labels: ['1', '2'],
+    //     labelRotation: 45,
+    //     labelIntersectAction: 'None',
 
-      },
+    //   },
 
-      showTooltip: true,
-      zoomSettings: {
-        enableSelectionZooming: true,
-        enableDeferredZooming: false,
-        //   enable:true,
-        enableMouseWheelZooming: true,
-        //   enablePinchZooming: true,
+    //   yAxis: {
 
-        //   zoomFactor:13,
-        //   maxZoom: 25
-      },
-      tooltipRender: (args: ITooltipEventArgs) => {
-        args.content = [args.yLabel + ' | ' + args.xLabel + ' : ' + args.value + ' %'];
-      },
-      dataSource: heatmapData
+    //     labels: ['32','31','30', '29', '28', '27', '26', '25', '24', '23', '22', '21', '20', '19', '18', '17', '16', '15', '14', '13', '12', '11', '10', '9', '8', '7', '6', '5', '4', '3', '2', '1']
+    //   },
+    //   tooltipSettings: {
+    //     fill: '#696295',
+    //     textStyle: {
 
-    });
-    heatmap.appendTo('#element');
+    //       size: '0px'
+    //     },
+    //     border: {
+    //       width: '0.0000001px',
+    //       //  color: '#F0C27B',
+    //       //  radius: '0px'
+    //     }
+    //   },
+    //   paletteSettings: {
+    //     colorGradientMode: 'Table',
+    //     palette: [
+    //       //    { color: 'rgb(255, 0, 0)' },
+    //       //    { color: '#6C5B7B', label:'Moderate', value:0.002},
+    //       //   { color: '#355C7D', label:'High', value: 0.003 }
+    //       { color: '#0000ff' },
+    //       { color: '#00ffff' },
+    //       { color: '#00ff00' },
+    //       { color: '#ffff00' },
+    //       { color: '#ff0000' },
+    //       { color: '#000000' },
+    //       { color: '#172957' },
+          
+
+
+
+
+
+
+    //       /// { color: '#ffffff'}
+    //     ],
+    //     type: "Gradient",
+    //   },
+    //   legendSettings: {
+    //     visible: true,
+    //     enableSmartLegend: true
+    //   },
+    //   cellSettings: {
+    //     border: { width: 0 },
+    //     showLabel: false,
+    //     enableCellHighlighting: true
+
+    //   },
+
+    //   showTooltip: true,
+    //   zoomSettings: {
+    //     enableSelectionZooming: true,
+    //     enableDeferredZooming: false,
+    //     //   enable:true,
+    //     enableMouseWheelZooming: true,
+    //     //   enablePinchZooming: true,
+
+    //     //   zoomFactor:13,
+    //     //   maxZoom: 25
+    //   },
+    //   tooltipRender: (args: ITooltipEventArgs) => {
+    //     args.content = [args.yLabel + ' | ' + args.xLabel + ' : ' + args.value + ' %'];
+    //   },
+    //   renderingMode:"SVG",
+    //   dataSource: heatmapData
+
+    // });
+    // heatmap.appendTo('#element');
   }
   // let heatmapData: Object = [
   //   [0.001591041, 0.001766328, 0.001955627, 0.002204865, 0.002606054, 0.003311166, 0.006544807, 0.007804204, 0.016584313, 0.016453859, 0.007761713

@@ -22,7 +22,16 @@
 .vertical-center {
     margin: 0;
     position: absolute;
-   right: 47%;
+   right: 57%;
+   top: 20%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+ 
+  .vertical-center1 {
+    margin: 0;
+    position: absolute;
+   right: 37%;
    top: 20%;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);

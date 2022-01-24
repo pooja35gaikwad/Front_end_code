@@ -30,4 +30,8 @@ export class DataService {
   getMatrix() {
     return this.http.get<MatrixData>('http://localhost:8070/getBScan')
   }
+
+  getMeanSubtractedMatrix() {
+    return this.http.get<MatrixData>('http://localhost:8070/getMeanSubtractedBScan')
+  }
 }

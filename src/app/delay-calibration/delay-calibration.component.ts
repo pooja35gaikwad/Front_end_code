@@ -2,22 +2,49 @@ import { Component, OnInit } from '@angular/core';
 import { CSVDataBean, DataService } from '../service/data.service';
 import * as CanvasJS from './canvasjs.min.js'
 
+export class FreqParams {
+  constructor(
+    public startFreq: number,
+    public stopFreq: number,
+    public noOfPoints: number,
+
+  ) {
+
+  }
+}
 
 @Component({
   selector: 'app-delay-calibration',
   templateUrl: './delay-calibration.component.html',
   styleUrls: ['./delay-calibration.component.css']
 })
+
 export class DelayCalibrationComponent implements OnInit {
+
   img1!: string[];
   freq!: BigInteger[];
   real!: Float32List[];
-  magnitude!: number[];   
+  magnitude!: number[];
+  startFreq!: number;
+  stopFreq!: number;
+  numberOfpoints!: number;
+
   constructor(private service: DataService) { }
   chart: any;
+
+  saveParameters(val) {
+   this.service.setParameters(val).subscribe(
+     
+   )
+    this.startFreq = val.startFreq;
+    this.stopFreq = val.stopFreq;
+    this.numberOfpoints = val.numberOfpoints;
+    console.log(val);
+  }
   ngOnInit(): void {
   }
   display = false;
+
   onPress() {
     // this.display = !this.display;
     console.log(this.service.executeMethod());
@@ -50,7 +77,7 @@ export class DelayCalibrationComponent implements OnInit {
 
     for (var i = 0; i <= 201; i++) {
       dps.push({
-         // x: Freqarray[i],
+        // x: Freqarray[i],
         // y: Realarray[i]
         // x: [i*4],
         // y: Realarray[i]

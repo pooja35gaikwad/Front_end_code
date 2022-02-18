@@ -12,4 +12,18 @@ export class AlgorithmComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  goPython(){
+     
+
+}
+runScript(){
+  console.log("script is running !!");
+  $.ajax({
+   // url: "/assets/hello.py",
+   url: "/assets/multiple_csv_ui.py",
+   context: document.body
+  }).done(function() {
+   alert('finished python script');;
+  });
+}
 }

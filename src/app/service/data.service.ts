@@ -13,7 +13,16 @@ export class MatrixData {
 
   }
 }
+export class FreqParams {
+  constructor(
+    public startFreq: number,
+    public stopFreq: number,
+    public noOfPoints: number,
 
+  ) {
+
+  }
+}
 
 @Injectable({
   providedIn: 'root'
@@ -33,5 +42,11 @@ export class DataService {
 
   getMeanSubtractedMatrix() {
     return this.http.get<MatrixData>('http://localhost:8070/getMeanSubtractedBScan')
+  }
+
+  setParameters(freqParams){
+    return this.http.post(
+                `http://localhost:8070/setParameters`
+                , freqParams);
   }
 }

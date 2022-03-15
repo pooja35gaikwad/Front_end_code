@@ -1,52 +1,88 @@
-<h5
-    style="text-align: center; font-family: 'Times New Roman', Times, serif; font-weight: bolder; font-size: xx-large; color: green; text-decoration: underline;">
-    B-Scan Processing
-</h5>
-<hr>
 
-<input type="button" id='script' name="scriptbutton" value=" Run Script " onclick="exec('python MYSCRIPT.py');">
-
-
-<div class="vertical-center" style="text-align: center; ">
-    <button (click)="onPress()" class="btn btn-success" style="text-align: center;">
-        GET IMAGE
+<nav class="navbar navbar-light bg-light fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#" style="font-family: 'Times New Roman', Times, serif; font-weight: bolder;">Tools
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+      aria-controls="offcanvasNavbar">
+      <span class="navbar-toggler-icon"></span>
     </button>
-</div>
-
-<div class="vertical-center1" style="text-align: center; ">
-    <button (click)="onPress1()" class="btn btn-success" >
-        MEAN SUBTRACTION
-    </button>
-</div>
-
-<form action="/action_page.php">
-    <label for="files" >Please Select necessary CSV files: </label>
-    <input type="file" id="files" name="files" multiple ><br><br>
-    <input type="submit" style="margin-left: 200px;">
-</form>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Tools</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <li class="nav-item">
 
 
-<div>
+            <a routerLink="/delay-calibration">
+              <button class="btn btn-outline-success" type="button">
+                Home
+              </button>
+            </a>
+          </li>
+          <li class="nav-item">
 
+            <button (click)="onPress()" class="btn btn-outline-success" style="margin-top: 0.5cm;">B-Scan
+              Image</button>
+          </li>
 
-    <canvas id="myCanvas" 
-        style="border:3px solid #d3d3d3; background-color: rgb(65, 65, 61); top: 60%; left: 50%; position: absolute; width: 1000px; height: 700px; transform: translate(-50%, -50%);">
-      </canvas>
-    <script src="script.js"></script>
+          <li class="nav-item">
+            <button (click)="onPress1()" class="btn btn-outline-success" style="margin-top: 0.5cm;">Mean Subtracted
+              Image</button>
 
-   
-    <div id='container'>  <div id='container'>
-        <div id='element' style="width:980px; height:650px; margin-left: 24.5%; margin-top: 0.2%;"></div>
+          </li>
+          <li class="nav-item">
+            <button (click)="onPress2()" class="btn btn-outline-success" style="margin-top: 0.5cm;">Range-Doppler
+              Image</button>
+
+          </li>
+          <li class="nav-item">
+            <button (click)="onPress3()" class="btn btn-outline-success" style="margin-top: 0.5cm;">Target From
+              SVD</button>
+
+          </li>
+          <li class="nav-item">
+            <button (click)="onPress4()" class="btn btn-outline-success" style="margin-top: 0.5cm;">Clutter From
+              SVD</button>
+
+          </li>
+
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
+            style="margin-top: 0.5cm;">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
     </div>
-    <!-- <ej-heatmaplegend id="heatmaplegend" style="margin-left:150px" height="50px" width="75%">
-        <e-legendcolormappings>
-            <e-legendcolormapping [value]="0" color="#8ec8f8">
-                </e-legendcolormapping>
-            <e-legendcolormapping [value]="100" color="#0d47a1">
-                </e-legendcolormapping>
-        </e-legendcolormappings>
-    </ej-heatmaplegend> -->
+  </div>
+</nav>
+
+
+
+
+<div class="split right">
+
+
+
+  <canvas id="myCanvas"
+    style="margin-top:0%; border:3px solid #d3d3d3; background-color: rgb(65, 65, 61); top:45%; left: 50%; position: absolute; width: 1000px; height: 800px; transform: translate(-50%, -50%);">
+  </canvas>
+  <script src="script.js"></script>
+
+
+  <div id='container'>
+    <div id='container'>
+      <div id='element' style="width:980px; height:780px; margin-left: 13.8%; margin-top: 3%;"></div>
     </div>
 
 
+  </div>
+</div>
+<div class="split left">
+
+  <app-file-upload></app-file-upload>
 </div>

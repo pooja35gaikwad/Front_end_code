@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AlgorithmComponent } from './algorithm/algorithm.component';
 import { DelayCalibrationComponent } from './delay-calibration/delay-calibration.component';
+import { FileUploadComponent } from './file-upload/file-upload.component';
 import { GetImageComponent } from './get-image/get-image.component';
 import { ParametersComponent } from './parameters/parameters.component';
 import { VisualisationComponent } from './visualisation/visualisation.component';
@@ -21,6 +22,9 @@ const routes: Routes = [
   },
   {
     path: 'get-image', component: GetImageComponent
+  },
+  {
+    path: 'file-upload', component: FileUploadComponent
   }
 ];
 

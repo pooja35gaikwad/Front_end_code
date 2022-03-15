@@ -12,6 +12,8 @@ import { VisualisationComponent } from './visualisation/visualisation.component'
 import { HttpClientModule } from '@angular/common/http';
 import { GetImageComponent } from './get-image/get-image.component';
 import { ZoomService} from '@syncfusion/ej2-angular-maps';
+import { FileUploadComponent } from './file-upload/file-upload.component';
+
 //import { IgxGeographicMapModule } from "igniteui-angular-maps";
 
 @NgModule({
@@ -23,6 +25,7 @@ import { ZoomService} from '@syncfusion/ej2-angular-maps';
     ParametersComponent,
     VisualisationComponent,
     GetImageComponent,
+    FileUploadComponent,
 
   ],
   imports: [

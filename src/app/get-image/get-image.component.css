@@ -22,7 +22,7 @@
 .vertical-center {
     margin: 0;
     position: absolute;
-   right: 57%;
+   right: 60%;
    top: 20%;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
@@ -31,10 +31,43 @@
   .vertical-center1 {
     margin: 0;
     position: absolute;
+   right: 48%;
+   top: 20%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+  .vertical-center2 {
+    margin: 0;
+    position: absolute;
    right: 37%;
    top: 20%;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
   }
  
+.split{
+  height: 100%;
+  width:70%;
+  position: fixed;
+z-index: 1;
+top: 0.5;
+overflow-x: hidden;
+
+}
+/* Control the left side */
+.left {
+padding-top: 0.5px;
+left:70%;
+background-color: rgb(253, 251, 251);
+width: 50%;
+}
+
+/* Control the right side */
+.right {
+padding-top: 0.5px;
+right: 30%;
+background-color: rgb(193, 231, 247);
+
+/* background-color: rgb(235, 149, 149); */ 
+}
  

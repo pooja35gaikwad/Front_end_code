@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpEvent, HttpRequest } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 export class CSVDataBean {
   constructor(public freq: BigInteger[],
@@ -43,10 +44,45 @@ export class DataService {
   getMeanSubtractedMatrix() {
     return this.http.get<MatrixData>('http://localhost:8070/getMeanSubtractedBScan')
   }
+  getRangeDopplerImageMatrix() {
+    return this.http.get<MatrixData>('http://localhost:8070/getRangeDopplerImage')
+  }
+  
+  getSVDTarget() {
+    return this.http.get<MatrixData>('http://localhost:8070/getTargetFromSVD')
+  }
 
+  getSVDClutter() {
+    return this.http.get<MatrixData>('http://localhost:8070/getClutterFromSVD')
+  }
+
+  getStDeviation() {
+    return this.http.get<number[]>('http://localhost:8070/getStDeviation')
+  }
   setParameters(freqParams){
     return this.http.post(
                 `http://localhost:8070/setParameters`
                 , freqParams);
+  }
+  uploadfile(file: File){
+    let formParams = new FormData();
+    formParams.append('file', file)
+    return this.http.post(
+                `http://localhost:8070/upload`
+                , formParams);
+  }
+
+  upload(file: File): Observable<HttpEvent<any>> {
+    const formData: FormData = new FormData();
+    formData.append('files', file);
+    const req = new HttpRequest('POST', `http://localhost:8070/upload`, formData, {
+      reportProgress: true,
+      responseType: 'json'
+    });
+    return this.http.request(req);
+  }
+
+  getFiles(): Observable<any> {
+    return this.http.get(`http://localhost:8070/files`);
   }
 }

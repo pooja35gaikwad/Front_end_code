@@ -31,7 +31,11 @@ export class DelayCalibrationComponent implements OnInit {
 
   constructor(private service: DataService) { }
   chart: any;
+  chart1: any;
 
+  getExperimentName(){
+    console.warn
+  }
   saveParameters(val) {
    this.service.setParameters(val).subscribe(
      
@@ -51,11 +55,77 @@ export class DelayCalibrationComponent implements OnInit {
 
     this.service.executeMethod().subscribe(
       response => this.handleSuccessfulResponse(response)
+      
     );
     //console.log("Welcome here");
     console.log("this is last line of code");
   }
 
+  onPress1() {
+    // this.display = !this.display;
+    console.log(this.service.getStDeviation());
+
+    this.service.getStDeviation().subscribe(
+      response => this.handleSuccessfulResponse1(response)
+    );
+    //console.log("Welcome here");
+    console.log("this is last line of code");
+  }
+
+  handleSuccessfulResponse1(response: number[]) {
+    
+    // this.img1=response.img;
+    // this.freq=response.freq;
+    // this.real=response.real;
+    
+
+
+
+    const dps = [] as any;
+
+
+    for (var i =0; i <= 201; i++) {
+      dps.push({
+        // x: Freqarray[i],
+        // y: Realarray[i]
+        // x: [i*4],
+        // y: Realarray[i]
+
+        x: [i*15/201],
+        // y: response.magnitude[i]
+        y: response[i+17]
+      })
+    }
+
+    this.chart1 = new CanvasJS.Chart("chartContainer1", {
+      animationEnabled: true,
+      axisX: {
+        title: "Range",
+        //  suffix: "Hz",
+        // maximum: 804,
+        maximum: 15,
+        minimum: 0
+        //maximum: 1000000000,
+        //  minimum:500000000
+      },
+      axisY: {
+        title: "Amplitude",
+        // suffix: "m",
+        // maximum: 5,
+        // minimum: -2
+
+      },
+      data: [
+        {
+          type: "spline",
+          dataPoints: dps
+        }
+      ]
+
+    });
+
+    this.chart1.render();
+  }
   handleSuccessfulResponse(response: CSVDataBean) {
     console.log(response.freq);
     console.log(response.real);
@@ -72,11 +142,11 @@ export class DelayCalibrationComponent implements OnInit {
 
 
 
-    const dps = [] as any;
+    const dps1 = [] as any;
 
 
     for (var i = 0; i <= 201; i++) {
-      dps.push({
+      dps1.push({
         // x: Freqarray[i],
         // y: Realarray[i]
         // x: [i*4],
@@ -100,7 +170,7 @@ export class DelayCalibrationComponent implements OnInit {
         //  minimum:500000000
       },
       axisY: {
-        title: "Real Part of Data",
+        title: "Amplitude",
         // suffix: "m",
         // maximum: 5,
         // minimum: -2
@@ -109,7 +179,7 @@ export class DelayCalibrationComponent implements OnInit {
       data: [
         {
           type: "spline",
-          dataPoints: dps
+          dataPoints: dps1
         }
       ]
 

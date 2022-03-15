@@ -1,5 +1,6 @@
 <label class="switch">
-    <input type="checkbox" id="togBtn">
+    <input type="checkbox" id="togBtn" [checked]=true>
+
     <div class="slider round">
 
     </div>
@@ -8,7 +9,11 @@
 <div class="split left">
     <div class="col-sm-4">
         <div class="fakeimg">
-            <div id="chartContainer" style="height: 550px; border-radius: 50 mm; border-color: rgb(8,8,8);">
+            <div id="chartContainer" style="height:550px; ">
+            </div>
+        </div>
+        <div class="fakeimg1">
+            <div id="chartContainer1" style="height: 120px; ">
             </div>
         </div>
     </div>
@@ -18,104 +23,55 @@
         <form #frm="ngForm" (ngSubmit)="saveParameters(frm.value)">
             <!-- Grid row -->
             <div class="form-group row" style="padding-top: 7px;">
-              <!-- Material input -->
-              <label for="inputEmail3MD" class="col-sm-2 col-form-label">Start Frequency</label>
-             
-              <div class="col-sm-10">
-                <div class="md-form mt-0">
-                  <input mdbInput type="number" class="form-control" id="inputEmail3MD" placeholder="Enter Start Freq. in GHz.." [(ngModel)]="startFreq" name="startFreq">
+                <!-- Material input -->
+                <label for="inputEmail3MD" class="col-sm-2 col-form-label">Start Frequency</label>
+
+                <div class="col-sm-10">
+                    <div class="md-form mt-0">
+                        <input mdbInput type="number" class="form-control" id="inputEmail3MD"
+                            placeholder="Enter Start Freq. in GHz.." [(ngModel)]="startFreq" name="startFreq">
+                    </div>
                 </div>
-              </div>
             </div>
             <!-- Grid row -->
-             <!-- Grid row -->
-             <div class="form-group row" style="padding-top: 7px;">
+            <!-- Grid row -->
+            <div class="form-group row" style="padding-top: 7px;">
                 <!-- Material input -->
                 <label for="inputEmail3MD" class="col-sm-2 col-form-label">Stop Frequency</label>
                 <div class="col-sm-10">
-                  <div class="md-form mt-0">
-                 
-                    <input mdbInput type="number" class="form-control" id="inputEmail3MD" placeholder="Enter Stop Freq. in GHz.." [(ngModel)]="stopFreq" name="stopFreq">
-                  </div>
+                    <div class="md-form mt-0">
+
+                        <input mdbInput type="number" class="form-control" id="inputEmail3MD"
+                            placeholder="Enter Stop Freq. in GHz.." [(ngModel)]="stopFreq" name="stopFreq">
+                    </div>
                 </div>
-              </div>
-              <!-- Grid row -->
-               <!-- Grid row -->
+            </div>
+            <!-- Grid row -->
+            <!-- Grid row -->
             <div class="form-group row" style="padding-top: 7px;">
                 <!-- Material input -->
                 <label for="inputEmail3MD" class="col-sm-2 col-form-label">Number of Points</label>
                 <div class="col-sm-10">
-                  <div class="md-form mt-0">                   
-                    <input mdbInput type="number" class="form-control" id="inputEmail3MD" placeholder="Enter No. of points.." [(ngModel)]="numberOfpoints" name="numberOfpoints">
-                  </div>
+                    <div class="md-form mt-0">
+                        <input mdbInput type="number" class="form-control" id="inputEmail3MD"
+                            placeholder="Enter No. of points.." [(ngModel)]="numberOfpoints" name="numberOfpoints">
+                    </div>
                 </div>
-              </div>
+            </div>
 
-              <div class="form-group row" style="padding-top: 7px;">
+            <div class="form-group row" style="padding-top: 7px;">
                 <!-- Material input -->
                 <label for="inputEmail3MD" class="col-sm-2 col-form-label"></label>
                 <div class="col-sm-10">
-                  <div class="md-form mt-0">
-                    <input mdbInput type="submit"  >
-                  </div>
-                </div>
-              </div>
-              <!-- Grid row -->         
-           
-          
-          </form>
-<!-- <h1>
-    {{startFreq}}
-</h1>
-<h1>
-    {{stopFreq}}
-</h1>
-<h1>
-    {{numberOfpoints}}
-</h1> -->
-        <!-- <form>
-            <p> Start Freq </p>
-            <p> <input type="number" name="Start Freq"></p>
-            <p> Stop Freq </p>
-            <p> <input type="number" name="Stop Freq"></p>
-            <p> No. of points </p>
-            <p> <input type="number" name="No. of points"></p>
-        </form> -->
-        <!-- <form action="/action_page.php">
-            <div class="container">
-  
-                       
-              </div>
-            <div class="row">
-                <div class="col-25">
-                    <label for="fname" style="font-size: large; font-family: 'Times New Roman', Times, serif;">Start
-                        Freq.</label>
-                </div>
-                <div class="col-75">
-                    <input type="text" id="fname" name="startFreq" placeholder="Enter Start Freq. in GHz..">
+                    <div class="md-form mt-0">
+                        <input mdbInput type="submit">
+                    </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-25">
-                    <label for="lname" style="font-size: large; font-family: 'Times New Roman', Times, serif;">Stop
-                        Freq.</label>
-                </div>
-                <div class="col-75">
-                    <input type="text" id="lname" name="stopFreq" placeholder="Enter Stop Freq. in GHz..">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-25">
-                    <label for="fname"
-                        style="font-size: large; font-family: 'Times New Roman', Times, serif;">Points</label>
-                </div>
-                <div class="col-75">
-                    <input type="text" id="fname" name="startFreq" placeholder="Enter No. of points..">
-                </div>
-            </div>
-            
+            <!-- Grid row -->
 
-        </form> -->
+
+        </form>
     </div>
     <div class="container1">
         <h6 style="font-family: 'Times New Roman', Times, serif; font-weight: bold;"> Select Mode</h6>
@@ -175,12 +131,8 @@
             </div>
         </div>
         <div class="container5">
-            <form>
-                <div class="form-group">
-                    <label for="pwd">Experiment Name : </label>
-                    <input type="password" class="form-control" id="pwd">
-                </div>
-            </form>
+            <input type="text" (keyup)="getExperimentName()" placeholder="Enter Experiment Name" name="experimentName"
+                style="margin-top: 4px;">
         </div>
     </div>
 
@@ -189,8 +141,12 @@
 </div>
 
 
-<div class="dls-menu-item" style=" margin-top: 35%; ">
-    <button (click)="onPress()" class="btn btn-success">
-        START SCANNING
+<div class="dls-menu-item" style="margin-top: 40%; ">
+
+</div>
+<div class="dls-menu-item" style=" margin-left: 10%;">
+    <button (click)="onPress();onPress1()" class="btn btn-success">
+        A-Scan Plot & Range
     </button>
+
 </div>

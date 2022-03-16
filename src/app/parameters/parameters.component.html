@@ -1,50 +1,97 @@
-<nav class="navbar navbar-light bg-light fixed-top">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#" style="font-family: 'Times New Roman', Times, serif; font-weight: bolder;">Tools
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
-      aria-controls="offcanvasNavbar">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-      <div class="offcanvas-header">
-        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Tools</h5>
-        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-      </div>
-      <div class="offcanvas-body">
-        <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <!-- <a class="nav-link active">BScan</a> -->
-            <button class="btn btn-outline-success">B-Scan Image</button>
-          </li>
 
-          <li class="nav-item">
-            <button class="btn btn-outline-success" style="margin-top: 0.5cm;">Mean Subtracted Image</button>
-            <!-- <a class="nav-link active">Cluttering</a> -->
-          </li>
-          <li class="nav-item">
-            <button class="btn btn-outline-success" style="margin-top: 0.5cm;">Range-Doppler Image</button>
-            <!-- <a class="nav-link active">Thresholding</a> -->
-          </li>
-          <li class="nav-item">
-            <button class="btn btn-outline-success" style="margin-top: 0.5cm;">Target From SVD</button>
-            <!-- <a class="nav-link active">Thresholding</a> -->
-          </li>
-          <li class="nav-item">
-            <button class="btn btn-outline-success" style="margin-top: 0.5cm;">Clutter From SVD</button>
-            <!-- <a class="nav-link active">Thresholding</a> -->
-          </li>
 
-        </ul>
-        <form class="d-flex">
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
-            style="margin-top: 0.5cm;">
-          <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
+
+
+<!DOCTYPE html>
+<html>
+
+<body>
+
+  <div class="wrapper">
+    <!-- Sidebar Holder -->
+    <nav id="sidebar" [ngClass]="{ 'active': navbarOpen }">
+      <div class="sidebar-header">
+        <h3>Processing Tools</h3>
       </div>
+
+      <ul class="list-unstyled components">
+
+
+        <li>
+          <a href="#">Home</a>
+
+        </li>
+        <li>
+          <a (click)="onPress()">B-Scan Image</a>
+        </li>
+        <li>
+          <a (click)="onPress1()">Mean-Subtracted Image</a>
+        </li>
+        <li>
+          <a (click)="onPress2()">Range-Doppler Image</a>
+        </li>
+        <li>
+          <a (click)="onPress3()">Target From SVD</a>
+        </li>
+        <li>
+          <a (click)="onPress4()">Clutter From SVD</a>
+        </li>
+      </ul>
+
+
+    </nav>
+
+    <!-- Page Content Holder -->
+    <div id="content">
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+
+          <button type="button" id="sidebarCollapse" (click)="toggleNavbar()" class="navbar-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+            aria-label="Toggle navigation" *ngIf="!navbarOpen">
+            <i class="fa fa-align-justify"></i>
+          </button>
+
+
+        </div>
+      </nav>
+
+      <canvas id="myCanvas"
+        style="margin-top:0%;  top:45%; left: 50%; position: absolute; width: 1000px; height: 800px; transform: translate(-50%, -50%);">
+      </canvas>
+      <script src="script.js"></script>
+
+
+      <div id='container'>
+        <div id='container'>
+          <div id='element' style=" border-color: black; background-color: rgb(205, 227, 241);width:980px; height:700px; margin-left: 13.8%; margin-top: 3%;"></div>
+        </div>
+
+
+      </div>
+
     </div>
   </div>
-</nav>
+
+  <!-- jQuery CDN - Slim version (=without AJAX) -->
+  <!-- Popper.JS -->
+  <!-- Bootstrap JS -->
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $('#sidebarCollapse').on('click', function () {
+        $('#sidebar').toggleClass('active');
+        $(this).toggleClass('active');
+      });
+    });
+
+  </script>
+</body>
+
+</html>

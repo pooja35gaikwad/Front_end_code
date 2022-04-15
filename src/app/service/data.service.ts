@@ -59,6 +59,12 @@ export class DataService {
   getStDeviation() {
     return this.http.get<number[]>('http://localhost:8070/getStDeviation')
   }
+
+  getHighPeak() {
+    return this.http.get<number[]>('http://localhost:8070/getSingleHighPeak')
+  }
+
+
   setParameters(freqParams){
     return this.http.post(
                 `http://localhost:8070/setParameters`
@@ -81,6 +87,25 @@ export class DataService {
     });
     return this.http.request(req);
   }
+
+  uploadfile1(file: File){
+    let formParams = new FormData();
+    formParams.append('file', file)
+    return this.http.post(
+                `http://localhost:8070/uploadMultiple`
+                , formParams);
+  }
+
+  upload1(file: File): Observable<HttpEvent<any>> {
+    const formData: FormData = new FormData();
+    formData.append('files', file);
+    const req = new HttpRequest('POST', `http://localhost:8070/uploadMultiple`, formData, {
+      reportProgress: true,
+      responseType: 'json'
+    });
+    return this.http.request(req);
+  }
+
 
   getFiles(): Observable<any> {
     return this.http.get(`http://localhost:8070/files`);

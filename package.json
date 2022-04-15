@@ -24,6 +24,7 @@
     "igniteui-angular-charts": "^13.1.0",
     "igniteui-angular-core": "^13.1.0",
     "igniteui-angular-maps": "^13.1.0",
+    "ng-http-loader": "^11.0.1",
     "rxjs": "~7.4.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

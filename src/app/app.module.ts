@@ -13,7 +13,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { GetImageComponent } from './get-image/get-image.component';
 import { ZoomService} from '@syncfusion/ej2-angular-maps';
 import { FileUploadComponent } from './file-upload/file-upload.component';
-
+import { NgHttpLoaderModule } from 'ng-http-loader';
 //import { IgxGeographicMapModule } from "igniteui-angular-maps";
 
 @NgModule({
@@ -34,6 +34,7 @@ import { FileUploadComponent } from './file-upload/file-upload.component';
     HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
+    NgHttpLoaderModule.forRoot(),
     //
     //IgxGeographicMapModule
   ],

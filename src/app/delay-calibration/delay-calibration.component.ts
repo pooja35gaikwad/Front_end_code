@@ -49,7 +49,7 @@ export class DelayCalibrationComponent implements OnInit {
   }
   display = false;
 
-  onPress() {
+  onPress1() {
     // this.display = !this.display;
     console.log(this.service.executeMethod());
 
@@ -61,7 +61,7 @@ export class DelayCalibrationComponent implements OnInit {
     console.log("this is last line of code");
   }
 
-  onPress1() {
+  onPress() {
     // this.display = !this.display;
     console.log(this.service.getStDeviation());
 
@@ -114,6 +114,9 @@ export class DelayCalibrationComponent implements OnInit {
         // maximum: 5,
         // minimum: -2
 
+      },
+      title:{
+        text: "Range Plot"              
       },
       data: [
         {

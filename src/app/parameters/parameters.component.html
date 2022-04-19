@@ -1,7 +1,3 @@
-
-
-
-
 <!DOCTYPE html>
 <html>
 
@@ -15,7 +11,11 @@
       </div>
 
       <ul class="list-unstyled components">
-
+  
+        <li class="active">
+         
+         
+        </li>
 
         <li>
           <a href="#">Home</a>
@@ -23,6 +23,7 @@
         </li>
         <li>
           <a (click)="onPress()">B-Scan Image</a>
+          <ng-http-loader> </ng-http-loader>
         </li>
         <li>
           <a (click)="onPress1()">Mean-Subtracted Image</a>
@@ -36,6 +37,9 @@
         <li>
           <a (click)="onPress4()">Clutter From SVD</a>
         </li>
+        <li>
+          <a (click)="getTrajectory()">Target Trajectory</a>
+        </li>
       </ul>
 
 
@@ -47,10 +51,17 @@
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
 
-          <button type="button" id="sidebarCollapse" (click)="toggleNavbar()" class="navbar-btn">
-            <span></span>
-            <span></span>
-            <span></span>
+          <button type="button" id="sidebarCollapse" (click)="toggleNavbar()" class="navbar-toggle collapsed">
+
+              <span></span>
+              
+              <span></span>
+             
+              <span></span>
+             
+             
+      
+            
           </button>
           <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse"
             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -78,7 +89,6 @@
 
     </div>
   </div>
-
   <!-- jQuery CDN - Slim version (=without AJAX) -->
   <!-- Popper.JS -->
   <!-- Bootstrap JS -->
@@ -86,8 +96,8 @@
   <script type="text/javascript">
     $(document).ready(function () {
       $('#sidebarCollapse').on('click', function () {
-        $('#sidebar').toggleClass('active');
-        $(this).toggleClass('active');
+        $('#sidebar').toggleClass('open');
+        $(this).toggleClass('open');
       });
     });
 
